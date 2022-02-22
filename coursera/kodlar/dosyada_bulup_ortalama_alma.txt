@@ -1,0 +1,10 @@
+# Use the file name mbox-short.txt as the file name
+fname = input("Enter file name: ")
+fh = open(fname)
+realnumber = 0
+for line in fh:
+    if not line.startswith("X-DSPAM-Confidence:") : continue
+    number = line[20:26]
+    realnumber =realnumber + float(number)
+realrealnumber = realnumber / 27
+print(f'Average spam confidence: {realrealnumber}')
